@@ -29,7 +29,10 @@ const baseClasses =
   values are consumed in the `className` attribute...
   ------------------------------
 */
-const impactClasses: Record<ButtonProps['tone'], Record<ButtonProps['impact'], string>> = {
+const impactClasses: Record<
+  ButtonProps['tone'],
+  Record<ButtonProps['impact'], string>
+> = {
   bold: 'bg-indigo-500 text-white shadow-md hover:bg-indigo-600',
   light: 'bg-indigo-100 text-indigo-700 hover:bg-indigo-200',
   none: 'bg-transparent text-indigo-700 hover:bg-indigo-50',
@@ -60,7 +63,12 @@ const Button = ({
   return (
     <button
       {...restProps}
-      className={cx(baseClasses, impactClasses[impact], sizeClasses[size], shapeClasses[shape])}
+      className={cx(
+        baseClasses,
+        impactClasses[impact],
+        sizeClasses[size],
+        shapeClasses[shape]
+      )}
     />
   )
 }

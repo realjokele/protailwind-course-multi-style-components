@@ -28,8 +28,16 @@ const impactClasses: Record<ButtonProps['impact'], string> = {
   following the same approach we used for the `impactClasses` object.
   ------------------------------
 */
-const sizeClasses: Record<ButtonProps['size'], string> = {}
-const shapeClasses: Record<ButtonProps['shape'], string> = {}
+const sizeClasses: Record<ButtonProps['size'], string> = {
+  small: 'px-3 py-1 text-sm',
+  medium: 'px-5 py-2 text-base',
+  large: 'px-7 py-2.5 text-lg',
+}
+const shapeClasses: Record<ButtonProps['shape'], string> = {
+  pill: 'rounded-full',
+  rounded: 'rounded-md',
+  square: 'rounded-none',
+}
 
 // ------------------------------
 // Component definition (with default variants)
@@ -49,7 +57,12 @@ const Button = ({
         values to the className attribute below.
         ------------------------------
       */
-      className={cx(baseClasses, impactClasses[impact])}
+      className={cx(
+        baseClasses,
+        impactClasses[impact],
+        sizeClasses[size],
+        shapeClasses[shape]
+      )}
     />
   )
 }
